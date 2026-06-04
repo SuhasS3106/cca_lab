@@ -1,0 +1,81 @@
+1st exp 
+# Pull/download an image from Docker Hub without running it
+docker pull alpine
+
+# List all locally stored Docker images
+docker images
+
+# Create and start an Nginx container in the background (detached mode) named 'my_web'
+docker run -d --name my_web nginx
+
+# List all currently running Docker containers
+docker ps
+
+# View detailed low-level configuration metadata of the container
+docker inspect my_web
+
+# List the network port mappings for the container
+docker port my_web
+
+# Run a specific command inside the running container without opening a full shell
+docker exec my_web echo "Hello from inside Nginx!"
+
+# Open an interactive terminal shell inside the running container (type 'exit' to leave)
+docker exec -it my_web bash
+
+# Gracefully stop the running container
+docker stop my_web
+
+# Start the stopped container back up
+docker start my_web
+
+# Stop and immediately start the container again
+docker restart my_web
+
+# Stop and then permanently remove the container
+docker stop my_web
+docker rm my_web
+
+# Remove the locally downloaded image from your system
+docker rmi alpine
+
+# Build a custom image from a Dockerfile located in the current directory
+docker build -t my-custom-app .
+
+# Tag and push your local image to your personal Docker Hub repository (requires docker login)
+docker tag my-custom-app:latest yourusername/repo-name:latest
+docker push yourusername/repo-name:latest
+
+2nd exp
+# Build the image and tag it as 'my-simple-app'
+docker build -t my-simple-app .
+
+# Run the containerized app
+docker run my-simple-app
+
+3rd exp
+# Start all containers in the background (-d)
+docker compose up -d
+
+# Check the status of your compose stack
+docker compose ps
+
+# Tear down the stack and stop the containers
+docker compose down
+
+open http://localhost:8080
+
+5th exp 
+# Apply the deployment and service configuration
+kubectl apply -f nginx-deployment.yaml
+
+# Monitor the deployment status until all pods are ready
+kubectl get deployments
+
+# Check the status of the pods
+kubectl get pods
+
+#check if service is live
+kubectl get service nginx-service
+
+open http://localhost:80
